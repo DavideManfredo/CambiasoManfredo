@@ -10,7 +10,7 @@ gf_workspace('clear all')
 
 %% Omega e Lambda
 
-PLOTTO=1; 
+PLOTTO=0; 
 
 %% Omega 
 
@@ -286,7 +286,7 @@ if (PLOTTO)
     title('Pressione nel vaso');
     figure(2)
     gf_plot(mfLv, uv);
-    title('Velocit‡ nel vaso');
+    title('Velocit√† nel vaso');
     figure(3)
     gf_plot(mf1, Pt, 'mesh', 'on', 'cvlst', gf_mesh_get(OmegaM, 'outer faces') ); hold on;
     gf_plot(mf1, Pt, 'mesh', 'on', 'cvlst', gf_mesh_get(OmegaM, 'inner faces') ); hold off;
@@ -295,7 +295,7 @@ if (PLOTTO)
     figure(4)
     gf_plot(mf3, Ut, 'mesh', 'off', 'cvlst', gf_mesh_get(OmegaM, 'outer faces') ); hold on;
     gf_plot(mf3, Ut, 'mesh', 'off', 'cvlst', gf_mesh_get(OmegaM, 'inner faces') ); hold off;
-    title('Mappa velocit‡ nel tessuto');
+    title('Mappa velocit√† nel tessuto');
 
 end
 
