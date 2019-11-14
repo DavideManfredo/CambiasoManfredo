@@ -12,7 +12,7 @@ plot_slices=0;
 %creazione ambiente
 %dimensioni Omega
 
-lx=10;   ly=10;   lz=10;
+lx=8;   ly=8;   lz=8;
 x0=0;   xf=1;   dx=xf-x0;
 y0=0;   yf=1;   dy=yf-y0;
 z0=0;   zf=1;   dz=zf-z0;
@@ -29,9 +29,9 @@ nbsk=ceil(lx*2);
 r=(min([dz/lz,dx/lx,dy/ly]))/20;
 khat=8;
 Lambda=zeros(nbsk,3);
-Lambda(:,1)= linspace(0+eps,1-eps, nbsk );%    (0:1/(nbsk-1):1)';
-Lambda(:,2)= 0.0091;%linspace(1-eps,0+eps, nbsk );%    (0+eps:1/(nbsk-1):1-eps)';
-Lambda(:,3)= 0.001;%linspace(1-eps,0+eps, nbsk );%    (0+eps:1/(nbsk-1):1-eps)';
+Lambda(:,1)= linspace(0+eps,1-eps, nbsk );%    
+Lambda(:,2)= linspace(1-eps,0+eps, nbsk );%   
+Lambda(:,3)= linspace(1-eps,0+eps, nbsk );%    
 
 Lambdaref= 0:1/(nbsk-1):1;
 LambdaM=gf_mesh('cartesian', Lambdaref);
@@ -157,12 +157,12 @@ gf_mesh_set(OmegaM,'region', DELTALAMBDA, deltalambda);
 kappa = 1;
 rho   = 1;
 gamma = 1; 
-BetaT = 1; 
-R     = 1;
+BetaT = 15; 
+R     = 10;
 cV    = 1;
-Lpsv  = .5; 
-pL    = 1;
-SAR   = 1; 
+Lpsv  = 0.5; 
+pL    = 0.5;
+SAR   = 1.3; 
 Tbl   = 37;
 ct    = 1; 
 
@@ -219,7 +219,7 @@ gf_model_set(md, 'add explicit rhs', 'T', V);                                   
 T0=(30)*ones(1,DoF_OmT);                %Initial Temperature
 DotT0=T0*0;
 
-Tempo=10; NumIntervalli=10;
+Tempo=30; NumIntervalli=10;
 dt=Tempo/NumIntervalli; ddt=dt/20.;
 
 gf_model_set(md, 'set time', 0);
